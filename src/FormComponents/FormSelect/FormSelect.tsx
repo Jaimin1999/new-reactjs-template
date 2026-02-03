@@ -1,12 +1,12 @@
 import { useFormContext, Controller, type FieldPath, type FieldValues } from "react-hook-form";
-import { Label } from "@/components/ui/Label";
 import {
+  Label,
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/Select";
+} from "@/components";
 import { cn } from "@/lib/utils";
 
 interface SelectOption {

@@ -2,7 +2,8 @@ import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema, type FormData } from "./validation";
 import { Button } from "@/components";
-import { FormInput, FormSelect } from "@/FormComponents";
+import { FormInput, FormSelect, FormRadio, FormCheckbox } from "@/FormComponents";
+
 
 export default function HookForm() {
 
@@ -44,6 +45,28 @@ export default function HookForm() {
             name="role"
             label="Role"
             options={roleOptions}
+          />
+          <FormRadio
+            name="gender"
+            label="Gender"
+            orientation="horizontal"
+            options={[
+              { value: "male", label: "Male" },
+              { value: "female", label: "Female" },
+              { value: "other", label: "Other" },
+              { value: "prefer-not-to-say", label: "Prefer not to say" },
+            ]}
+          />
+
+          <FormCheckbox
+            name="notifications"
+            label="Notification Preferences"
+            orientation="horizontal"
+            options={[
+              { value: "email", label: "Email" },
+              { value: "sms", label: "SMS" },
+              { value: "push", label: "Push" },
+            ]}
           />
           <Button
             type="submit"

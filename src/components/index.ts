@@ -6,3 +6,5 @@ export * from "./ui/Dialog";
 export * from "./ui/DropdownMenu";
 export * from "./ui/Label";
 export * from "./ui/Table";
+export * from "./ui/Radio";
+export * from "./ui/Checkbox";
