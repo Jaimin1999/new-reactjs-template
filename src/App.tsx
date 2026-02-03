@@ -5,8 +5,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
+  Input,
 } from "@/components";
-import { HookForm, ReduxExample, ReactQueryExample } from "./ExampleComponents";
+import { HookForm, ReduxExample, ReactQueryExample, TableExample } from "./ExampleComponents";
 
 function App() {
   return (
@@ -34,7 +35,9 @@ function App() {
         </CardFooter>
       </Card> */}
       {/* <HookForm /> */}
-      <ReduxExample />
+      <TableExample />
+      {/* <ReduxExample /> */}
+
       {/* <ReactQueryExample /> */}
     </div>
   );

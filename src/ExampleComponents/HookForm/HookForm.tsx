@@ -1,16 +1,25 @@
 import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema, type FormData } from "./validation";
-import NameInput from "./NameInput";
+import { Button } from "@/components";
+import { FormInput, FormSelect } from "@/FormComponents";
 
 export default function HookForm() {
+
+  const roleOptions = [{ value: "admin", label: "Admin" }, { value: "emp", label: "Employee" }]
+
+
   const methods = useForm<FormData>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      bio: "",
+      role: "emp",
+    },
   });
 
   const onSubmit = (data: FormData) => {
     console.log(data);
-    alert(`Form submitted! Name: ${data.name}`);
   };
 
   return (
@@ -20,14 +29,28 @@ export default function HookForm() {
           onSubmit={methods.handleSubmit(onSubmit)}
           className="space-y-4 bg-card border rounded-lg p-6 shadow-sm"
         >
-          <NameInput />
+          <FormInput
+            name="name"
+            label="Name"
+            placeholder="Enter your name (max 10 letters)"
 
-          <button
+          />
+          <FormInput
+            name="bio"
+            label="Bio"
+            placeholder="Enter your bio (max 10 letters)"
+          />
+          <FormSelect
+            name="role"
+            label="Role"
+            options={roleOptions}
+          />
+          <Button
             type="submit"
             className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 transition-colors"
           >
             Submit
-          </button>
+          </Button>
         </form>
       </FormProvider>
     </div>
