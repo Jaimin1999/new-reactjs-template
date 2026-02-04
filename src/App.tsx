@@ -34,8 +34,8 @@ function App() {
           </p>
         </CardFooter>
       </Card> */}
-      {/* <HookForm /> */}
-      <TableExample />
+      <HookForm />
+      {/* <TableExample /> */}
       {/* <ReduxExample /> */}
 
       {/* <ReactQueryExample /> */}

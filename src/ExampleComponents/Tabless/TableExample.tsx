@@ -1,5 +1,8 @@
-import { DataTable } from "@/CommonComponents"
+import { DataTable, ConfirmDialog } from "@/CommonComponents"
+
+import { Button } from "@/components"
 import { type ColumnDef } from "@tanstack/react-table"
+import { useState } from "react"
 
 export type Payment = {
     id: string
@@ -36,9 +39,15 @@ export default function TableExample() {
 
     ]
 
+    const [isDeletePopUp, setIsDeletePopUp] = useState(false)
+
+    const toggleIsDeletePop = () => setIsDeletePopUp(prev => !prev);
+
     return (
         <div className="container mx-auto py-10">
             <DataTable columns={columns} data={data} />
+            <Button onClick={toggleIsDeletePop}>Trigger Confrim</Button>
+            <ConfirmDialog open={isDeletePopUp} onOpenChange={toggleIsDeletePop} onConfirm={toggleIsDeletePop} />
         </div>
     )
 }

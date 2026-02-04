@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema, type FormData } from "./validation";
 import { Button } from "@/components";
 import { FormInput, FormSelect, FormRadio, FormCheckbox } from "@/FormComponents";
+import FormDateInput from "@/FormComponents/FormDateInput/FormDateInput";
 
 
 export default function HookForm() {
@@ -57,7 +58,12 @@ export default function HookForm() {
               { value: "prefer-not-to-say", label: "Prefer not to say" },
             ]}
           />
-
+          <FormDateInput
+            name="appointmentDate"
+            label="Appointment Date"
+            placeholder="Select appointment date"
+            min={new Date().toISOString().split("T")[0]}
+          />
           <FormCheckbox
             name="notifications"
             label="Notification Preferences"
